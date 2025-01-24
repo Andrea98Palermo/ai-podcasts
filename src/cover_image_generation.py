@@ -1,17 +1,19 @@
 from openai import OpenAI
-import dotenv
 import os
+from dotenv import load_dotenv
 
-dotenv.load_dotenv()
+load_dotenv()
 
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+class CoverImageGenerator:
+    def __init__(self):
+        self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
-response = client.images.generate(
-    model="dall-e-3",
-    prompt="a cover image for a podcast about climate change",
-    size="1024x1024",
-    quality="hd",
-    n=1,
-)
-
-print(response.data[0].url)
+    def generate(self, topic: str) -> str:
+        response = self.client.images.generate(
+            model="dall-e-3",
+            prompt=f"a cover image for a podcast about {topic}",
+            size="1024x1024",
+            quality="hd",
+            n=1,
+        )
+        return response.data[0].url

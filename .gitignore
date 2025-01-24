@@ -3,3 +3,4 @@ tavily_docs.txt
 .DS_Store
 .env
 generated_audio/
+__pycache__/
