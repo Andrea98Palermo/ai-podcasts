@@ -2,3 +2,4 @@ venv
 tavily_docs.txt
 .DS_Store
 .env
+generated_audio/

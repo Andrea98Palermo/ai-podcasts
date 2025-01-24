@@ -8,6 +8,7 @@ certifi==2024.12.14
 charset-normalizer==3.4.1
 dataclasses-json==0.6.7
 distro==1.9.0
+elevenlabs==1.50.3
 faiss-cpu==1.9.0.post1
 frozenlist==1.5.0
 h11==0.14.0
@@ -49,5 +50,6 @@ tqdm==4.67.1
 typing-inspect==0.9.0
 typing_extensions==4.12.2
 urllib3==2.3.0
+websockets==14.2
 yarl==1.18.3
 zstandard==0.23.0
