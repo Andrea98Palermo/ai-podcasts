@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from script_generation import ContentSearcher, ScriptGenerator
-from text_to_speech import AudioGenerator
+from audio_generation import AudioGenerator
 from cover_image_generation import CoverImageGenerator
 from tweet_generation import TweetGenerator
 
@@ -27,9 +27,11 @@ class PodcastGenerator:
         
         # Generate script
         script = self.script_generator.generate(topic, search_results)
-        
+
+        print("Generated script:")
+        print(script)
         # Generate audio # TODO: change to script
-        audio_bytes = self.audio_generator.generate("Thank you for tuning in, and remember, every perspective matters, every question counts, and every voice, including yours, can contribute to building bridges of understanding. Until next time, goodbye and keep on learning!")
+        audio_bytes = self.audio_generator.generate(script)
         
         # Generate cover image
         cover_image_url = self.cover_image_generator.generate(topic)
@@ -43,8 +45,3 @@ class PodcastGenerator:
             cover_image_url=cover_image_url,
             tweet=tweet
         )
-
-# Function to be used by the backend
-def generate_podcast_content(topic: str) -> PodcastContent:
-    generator = PodcastGenerator()
-    return generator.generate_podcast(topic) 

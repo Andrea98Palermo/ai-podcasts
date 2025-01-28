@@ -36,6 +36,7 @@ propcache==0.2.1
 pydantic==2.10.5
 pydantic-settings==2.7.1
 pydantic_core==2.27.2
+pydub==0.25.1
 python-dotenv==1.0.1
 PyYAML==6.0.2
 regex==2024.11.6

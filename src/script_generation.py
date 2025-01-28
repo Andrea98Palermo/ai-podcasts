@@ -82,7 +82,7 @@ class ScriptGenerator:
         
         chat_history = []
         
-        query = f"Generate a the first part of a detailed podcast script about {topic}. The script must be a monologue and as long as possible and it must only contain the monologue text, without any additional information (e.g. music, pauses, etc.). Important: It must not contain any conclusion at the end, as the script will be expanded later. NEVER use terms like 'lastly', 'in conclusion', 'finally' or similar ones."
+        query = f"Generate the first section of a detailed script for a podcast episode about {topic}. The script must be a monologue and as long as possible and it must only contain the monologue text, without any additional information (e.g. music, pauses, etc.). Important: It must not contain any conclusion at the end, as the script will be expanded later. NEVER use terms like 'lastly', 'in conclusion', 'finally' or similar ones. Important: Don't add any transitions, references to upcoming content, or phrases like 'stay tuned', 'coming up', or 'we'll explore later'. This first section should flow naturally into the next without announcing future content. Never refer to sections in the script."
         input_data = {
             "question": query,
             "chat_history": []
@@ -104,6 +104,7 @@ class ScriptGenerator:
                 f"Only answer with the expansion to add at the end of the script, not the entire script. It must be a meaningful expansion that starts from where the current script ends."
                 f"Important: Don't repeat the same information already present in the current script."
                 f"Important: Don't add any conclusion at the end, as the script will be expanded later. NEVER use terms like 'lastly', 'in conclusion', 'finally' or similar ones."
+                f"Important: Don't add any transitions, references to upcoming content, or phrases like 'stay tuned', 'coming up', or 'we'll explore later'. This section should flow naturally into the next without announcing future content. Never refer to sections in the script."
             )
             input_data = {
                 "question": query,

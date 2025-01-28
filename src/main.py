@@ -1,10 +1,10 @@
 import os
 # Use absolute import since we're running this file directly
-from podcast_generator import generate_podcast_content
+from podcast_generator import PodcastGenerator
 
 # In your backend route/handler
-topic = "quantum computing"  # Get this from the request
-podcast_content = generate_podcast_content(topic)
+topic = "official trump memecoin"  # Get this from the request
+podcast_content = PodcastGenerator().generate_podcast(topic)
 
 
 script = podcast_content.script
@@ -24,7 +24,7 @@ print(tweet)
 
 audio_dir = "generated_audio"
 os.makedirs(audio_dir, exist_ok=True)
-audio_path = os.path.join(audio_dir, f"{topic}.wav")
+audio_path = os.path.join(audio_dir, f"{topic.replace(' ', '_')}.mp3")
 with open(audio_path, "wb") as f:
-    f.write(b"".join(audio_bytes))
+        f.write(audio_bytes)
 print(f"\nAudio saved to: {audio_path}")
