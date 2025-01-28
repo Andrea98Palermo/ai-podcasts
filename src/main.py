@@ -3,7 +3,7 @@ import os
 from podcast_generator import PodcastGenerator
 
 # In your backend route/handler
-topic = "official trump memecoin"  # Get this from the request
+topic = "quantum computing"  # Get this from the request
 podcast_content = PodcastGenerator().generate_podcast(topic)
 
 

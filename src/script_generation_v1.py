@@ -74,7 +74,7 @@ class ScriptGenerator:
         
         chain = ConversationalRetrievalChain.from_llm(
             llm=ChatOpenAI(
-                model="gpt-4",
+                model="gpt-4o",
                 openai_api_key=self.openai_api_key
             ),
             retriever=vectorstore.as_retriever()
@@ -116,7 +116,7 @@ class ScriptGenerator:
             podcast_script += f"\n\n{new_content}"
 
         conclusion_llm = ChatOpenAI(
-            model="gpt-4",
+            model="gpt-4o",
             openai_api_key=self.openai_api_key,
             temperature=0.9
         )

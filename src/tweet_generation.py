@@ -8,7 +8,7 @@ load_dotenv()
 class TweetGenerator:
     def __init__(self):
         self.llm = ChatOpenAI(
-            model="gpt-4",
+            model="gpt-4o",
             openai_api_key=os.getenv('OPENAI_API_KEY'),
             temperature=0.8
         )
@@ -27,11 +27,11 @@ class TweetGenerator:
         prompt = f"""Generate a catchy and engaging tweet announcing an upcoming AI podcast episode about {topic}.
         Requirements:
         - Must be exactly one tweet (max 280 characters)
-        - Include relevant emojis
+        - Never include emojis
         - Be exciting and attention-grabbing
         - Include the topic: {topic}
         - Mention it's an AI-generated podcast
-        - Include #AIpodcast hashtag
+        - Include #AIpodcast and #AIJoe hashtags and other appropriate hashtags
         
         Only return the tweet text, nothing else."""
         

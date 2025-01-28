@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from script_generation import ContentSearcher, ScriptGenerator
+from script_generation_v3 import ScriptGenerator
 from audio_generation import AudioGenerator
 from cover_image_generation import CoverImageGenerator
 from tweet_generation import TweetGenerator
@@ -14,7 +14,7 @@ class PodcastContent:
 
 class PodcastGenerator:
     def __init__(self):
-        self.content_searcher = ContentSearcher()
+        #self.content_searcher = ContentSearcher()
         self.script_generator = ScriptGenerator()
         self.audio_generator = AudioGenerator()
         self.cover_image_generator = CoverImageGenerator()
@@ -23,12 +23,12 @@ class PodcastGenerator:
     def generate_podcast(self, topic: str) -> PodcastContent:
         """Main function to generate all podcast content"""
         # Search for content
-        search_results = self.content_searcher.search(topic)
+        #search_results = self.content_searcher.search(topic)
         
         # Generate script
-        script = self.script_generator.generate(topic, search_results)
+        script = self.script_generator.generate(topic)
 
-        print("Generated script:")
+        print("Final Generated script:")
         print(script)
         # Generate audio # TODO: change to script
         audio_bytes = self.audio_generator.generate(script)
